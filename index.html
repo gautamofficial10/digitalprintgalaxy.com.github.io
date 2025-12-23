@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Coming Soon</title>
+  <title>Coming Soon | Digital Print Galaxy</title>
   <meta name="description" content="Coming soon page" />
+
   <style>
     :root {
       --bg: #0b0f17;
@@ -12,9 +13,11 @@
       --text: #e9eefc;
       --muted: rgba(233, 238, 252, 0.72);
       --border: rgba(255, 255, 255, 0.12);
+      --accent: #5a78ff;
     }
 
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -23,6 +26,55 @@
                   var(--bg);
       color: var(--text);
       min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      background: rgba(11, 15, 23, 0.75);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+  .header-logo img {
+  height: 70px;   /* increased size */
+  width: auto;
+}
+
+
+    nav a {
+      margin-left: 22px;
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+    }
+
+    /* ---------- MAIN CONTENT ---------- */
+    main {
+      min-height: calc(100vh - 80px);
       display: grid;
       place-items: center;
       padding: 24px;
@@ -36,7 +88,6 @@
       background: var(--card);
       border-radius: 18px;
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 18px 60px rgba(0,0,0,0.35);
     }
 
@@ -44,22 +95,20 @@
       width: 140px;
       height: 140px;
       object-fit: contain;
-      display: block;
       margin: 0 auto 18px;
+      display: block;
       filter: drop-shadow(0 10px 18px rgba(0,0,0,0.35));
     }
 
     h1 {
       margin: 0 0 8px;
       font-size: 34px;
-      letter-spacing: 0.2px;
     }
 
     p {
       margin: 0;
       color: var(--muted);
       font-size: 16px;
-      line-height: 1.5;
     }
 
     footer {
@@ -67,22 +116,53 @@
       font-size: 12px;
       color: rgba(233, 238, 252, 0.55);
     }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 600px) {
+      nav a {
+        margin-left: 14px;
+        font-size: 13px;
+      }
+      .header-logo img {
+        height: 36px;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <main class="wrap">
-    <!-- Replace logo.png with your logo file name or a URL -->
-    <img class="logo" src="logo.png" alt="Your Logo" />
 
-    <h1>Coming Soon</h1>
-    <p>We’re working on something awesome. Stay tuned!</p>
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="header-logo">
+      <!-- Top-left logo -->
+      <img src="logo.png" alt="Digital Print Galaxy Logo">
+    </a>
 
-    <footer>© <span id="year"></span> Digital Print Galaxy</footer>
+    <!-- Navigation Menu -->
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <section class="wrap">
+      <!-- Center logo -->
+      <img class="logo" src="logo.png" alt="Digital Print Galaxy">
+
+      <h1>Coming Soon</h1>
+      <p>We’re working on something awesome. Stay tuned!</p>
+
+      <footer>© <span id="year"></span> Digital Print Galaxy</footer>
+    </section>
   </main>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
